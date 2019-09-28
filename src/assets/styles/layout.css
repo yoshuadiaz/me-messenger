@@ -108,7 +108,7 @@ footer {
  }    
  
  .main-section::-webkit-scrollbar{
-     width: 6px;
+     width: 5px;
      background-color: #202225;
  }
  
