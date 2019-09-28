@@ -1,0 +1,29 @@
+{
+  "name": "me-messenger",
+  "version": "1.0.0",
+  "description": "A Mariachi Estelar messenger app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles:build": "node-sass --include-path scss ./src/sass/styles.scss ./src/styles/styles.css",
+    "styles:watch": "nodemon -e scss -x \"npm run styles:build\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoshuadiaz/me-messenger.git"
+  },
+  "keywords": [],
+  "author": "Yoshua Díaz & Alfredo Morales Bluesmoss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoshuadiaz/me-messenger/issues"
+  },
+  "homepage": "https://github.com/yoshuadiaz/me-messenger#readme",
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "modern-normalize": "^0.5.0"
+  }
+}
