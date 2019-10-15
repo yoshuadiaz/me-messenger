@@ -1,0 +1,17 @@
+{
+  "name": "pantalla-conversacion",
+  "version": "1.0.0",
+  "description": "Esta es la pantalla de conversacion",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoshuadiaz/me-messenger.git"
+  },
+  "author": "@TuentyFaiv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoshuadiaz/me-messenger/issues"
+  },
+  "homepage": "https://github.com/yoshuadiaz/me-messenger#readme"
+}
