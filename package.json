@@ -1,5 +1,5 @@
 {
-  "name": "pantalla-conversacion",
+  "name": "me-messenger",
   "version": "1.0.0",
   "description": "Esta es la pantalla de conversacion",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/yoshuadiaz/me-messenger.git"
   },
-  "author": "@TuentyFaiv",
+  "author": "@TuentyFaiv & @YoshuaDíaz",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yoshuadiaz/me-messenger/issues"
