@@ -1,10 +1,10 @@
 import React from 'react';
+import { GlobalStyles } from '../assets/styles/GlobalStyles';
 
 const Layout = ({ children }) => (
   <>
-    <div>Header</div>
+    <GlobalStyles />
     <div>{children}</div>
-    <div>Footer</div>
   </>
 );
 

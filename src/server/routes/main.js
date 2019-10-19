@@ -1,5 +1,6 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { StaticRouter } from "react-router";
@@ -13,6 +14,7 @@ import render from "../render";
 require("dotenv").config();
 
 const main = async (req, res, next) => {
+  const sheet = new ServerStyleSheet();
   try {
     let initialState;
     try {
@@ -37,21 +39,26 @@ const main = async (req, res, next) => {
     const isLogged = (initialState.user.id);
     const store = createStore(reducer, initialState);
     const html = renderToString(
-      <Provider store={store}>
-        <StaticRouter
-          location={req.url}
-          context={{}}
-        >
-          <Layout>
-            {renderRoutes(Routes(isLogged))}
-          </Layout>
-        </StaticRouter>
-      </Provider>
+      <StyleSheetManager sheet={sheet.instance}>
+        <Provider store={store}>
+          <StaticRouter
+            location={req.url}
+            context={{}}
+          >
+            <Layout>
+              {renderRoutes(Routes(isLogged))}
+            </Layout>
+          </StaticRouter>
+        </Provider>
+      </StyleSheetManager>
     );
+    const styleTags = sheet.getStyleTags();
     const preloadedState = store.getState();
     res.send(render(html, preloadedState));
   } catch (error) {
     next(error);
+  } finally {
+    sheet.seal();
   }
 };
 
