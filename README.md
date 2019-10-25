@@ -1,2 +1,9 @@
 # me-messenger
-A Mariachi Estelar messenger app
+
+## pantallas de registro e incio de sesión
+
+Comando de instalación
+`npm install`
+
+Comando de desarrollo
+`npm run start:dev`
