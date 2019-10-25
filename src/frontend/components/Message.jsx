@@ -1,5 +1,6 @@
 import React from 'react';
-import { Message as Container, Imgsx } from '../assets/styles/Conversation';
+import { Message as Container } from '../assets/styles/ConversationSection';
+import { Imgsx } from '../assets/styles/GlobalStyles';
 
 import user from '../assets/static/user.jpg';
 
