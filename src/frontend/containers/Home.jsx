@@ -7,6 +7,12 @@ const Home = () => (
     <Link to="/chats/1">
       Conversation
     </Link>
+    <Link to="/login">
+      Iniciar sesion
+    </Link>
+    <Link to="/register">
+      Registrate
+    </Link>
   </div>
 );
 
