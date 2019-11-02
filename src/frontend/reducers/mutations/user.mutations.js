@@ -20,7 +20,7 @@ export const fetchSuccess = (state, { payload }) => ({
   data: payload,
 });
 
-export const fetchFailure = (state, action) => ({
+export const fetchFailure = (state, _) => ({
   ...state,
   isFetching: false,
   hasError: true,
