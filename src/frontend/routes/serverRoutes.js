@@ -1,6 +1,7 @@
 import Home from '../containers/Home';
 import Login from '../containers/Login';
 import Register from '../containers/Register';
+import Conversation from '../containers/Conversation';
 import NotFound from '../containers/NotFound';
 
 const serverRoutes = (isLogged) => {
@@ -18,6 +19,11 @@ const serverRoutes = (isLogged) => {
     {
       path: '/register',
       component: Register,
+      exact: true
+    },
+    {
+      path: '/chats/:id',
+      component: Conversation,
       exact: true
     },
     {

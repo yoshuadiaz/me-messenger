@@ -1,0 +1,82 @@
+.authLayout {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  height: 100vh;
+  overflow: hidden;
+
+  &__container {
+    background-color: rgb(11, 34, 83);
+  }
+  &__container--form {
+    background-image: linear-gradient(0deg, #e8f0f1, white);
+    box-shadow: -0.5em 0 0.5em #0007;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.5em;
+    overflow-y: auto;
+    padding: 1em;
+    text-align: center;
+    h1 {
+      color: rgb(158, 202, 0);
+      display: block;
+      font-size: 2em;
+      margin-bottom: 2em;
+    }
+    hr {
+      border: 1px solid #d9e8ea;
+      margin: 4em 2em 2em;
+    }
+
+    a {
+      color: rgb(158, 202, 0);
+      text-decoration: none;
+      &:hover {
+        color: rgb(116, 148, 1);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__image {
+    height: 100%;
+    max-height: 100vh;
+    object-fit: cover;
+    object-position: left;
+    width: 100%;
+  }
+
+  &__logo {
+    svg {
+      fill: rgb(179, 226, 7);
+    }
+  }
+}
+
+.form__field {
+  margin-bottom: 2em;
+  input {
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    outline-width: 0;
+    padding: 0.75em;
+    width: 80%;
+  }
+  button {
+    outline-width: 0;
+    cursor: pointer;
+  }
+}
+
+.button {
+  background-color: rgb(11, 34, 83);
+  border-radius: 0.5em;
+  border: 0 solid;
+  color: #fff;
+  min-width: 180px;
+  padding: 1em 2em;
+
+  &:hover {
+    background-color: rgb(0, 69, 116);
+  }
+}
