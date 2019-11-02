@@ -1,22 +1,27 @@
 import React from 'react';
-import { Imgs } from '../assets/styles/Conversation';
+import { MdCheck } from 'react-icons/md';
+
+import {
+  Chat,
+} from '../assets/styles/Chats';
+import { Imgs } from '../assets/styles/GlobalStyles';
 
 import chatImg from '../assets/static/user.jpg';
 
 const ChatItem = () => (
-  <div className="chat">
-    <div className="chat__img">
-      <Imgs src={chatImg} alt="Chat" />
+  <Chat>
+    <Imgs src={chatImg} alt="Chat" />
+    <div>
+      <h3>Vincent Van Gogh</h3>
+      <p>It is good to love many things</p>
     </div>
-    <div className="chat__contact">
-      <div className="chat__contact-name">
-        Vincent Van Gogh
-      </div>
-      <div className="chat__contact-time">10:00</div>
-      <div className="chat__contact-last-msg">It is good to love many things...</div>
-      <div className="chat__contact--options">options</div>
+    <div>
+      <span>10:00 am</span>
+      <span>
+        <MdCheck size={16} color="#BBBBBB" />
+      </span>
     </div>
-  </div>
+  </Chat>
 );
 
 export default ChatItem;
