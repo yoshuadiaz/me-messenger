@@ -24,11 +24,11 @@ const Conversation = () => (
     <ChatsSection>
       <Profile>
         <div>
-          <Img src={user} alt="user" />
+          <Img src={user} alt='user' />
           <h2>Nombre del Usuario</h2>
           <p>subtitulo</p>
         </div>
-        <button type="button">EDIT</button>
+        <button type='button'>EDIT</button>
       </Profile>
       <Searcher />
       <ChatContainer>
@@ -45,13 +45,13 @@ const Conversation = () => (
     <ConversationSection>
       <ConversationHeader>
         <div>
-          <Imgs src={user} alt="user" />
+          <Imgs src={user} alt='user' />
           <h2>Nombre del Usuario destino</h2>
         </div>
         <div>
-          <button type="button">Search</button>
-          <button type="button">Add Favorite</button>
-          <button type="button">Set remember</button>
+          <button type='button'>Search</button>
+          <button type='button'>Add Favorite</button>
+          <button type='button'>Set remember</button>
         </div>
       </ConversationHeader>
       <MessageContainer>
@@ -64,37 +64,37 @@ const Conversation = () => (
         <Message fromFriend />
       </MessageContainer>
       <SendMessage>
-        <input type="text" placeholder="Write a text" />
+        <input type='text' placeholder='Write a text' />
         <div>
-          <button type="button">Audio</button>
-          <button type="button">Adjunt</button>
-          <button type="button">Media</button>
-          <button type="button">Emojis</button>
+          <button type='button'>Audio</button>
+          <button type='button'>Adjunt</button>
+          <button type='button'>Media</button>
+          <button type='button'>Emojis</button>
         </div>
-        <button type="button">Send Message</button>
+        <button type='button'>Send Message</button>
       </SendMessage>
     </ConversationSection>
     <FeauturesSection>
       <Searcher />
-      <div className="user__contact">
-        <Imgl src={user} alt="user" />
+      <div className='user__contact'>
+        <Imgl src={user} alt='user' />
         <h2>Usuario destinatario</h2>
         <p>subtitulo</p>
       </div>
-      <div className="principal__actions">
-        <button type="button" className="call">Call</button>
-        <button type="button" className="videocall">Video Call</button>
+      <div className='principal__actions'>
+        <button type='button' className='call'>Call</button>
+        <button type='button' className='videocall'>Video Call</button>
       </div>
-      <div className="second__actions">
+      <div className='second__actions'>
         <h4>View Friends</h4>
         <h4>Add to Favorite</h4>
       </div>
-      <div className="attachments">
-        <div className="attachment">png</div>
-        <div className="attachment">gif</div>
-        <div className="attachment">mp3</div>
-        <div className="attachment">mp4</div>
-        <div className="view__all">View all</div>
+      <div className='attachments'>
+        <div className='attachment'>png</div>
+        <div className='attachment'>gif</div>
+        <div className='attachment'>mp3</div>
+        <div className='attachment'>mp4</div>
+        <div className='view__all'>View all</div>
       </div>
     </FeauturesSection>
   </Container>

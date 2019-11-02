@@ -1,24 +1,22 @@
 import axios from 'axios';
+import { createActions } from 'redux-actions';
 
-export const loginRequest = payload => ({
-  type: 'LOGIN_REQUEST',
-  payload,
-});
+const actionTypes = {
+  LOGIN_REQUEST: 'LOGIN_REQUEST',
+  LOGOUT_REQUEST: 'LOGOUT_REQUEST',
+  SET_ERROR: 'SET_ERROR',
+  REGISTER_REQUEST: 'REGISTER_REQUEST',
+};
 
-export const logoutRequest = payload => ({
-  type: 'LOGOUT_REQUEST',
-  payload,
-});
+const actionCreator = createActions({},
+  Object.values(actionTypes).toString());
 
-export const setError = payload => ({
-  type: 'SET_ERROR',
-  payload,
-});
-
-export const registerRequest = payload => ({
-  type: 'REGISTER_REQUEST',
-  payload,
-});
+export const {
+  loginRequest,
+  logoutRequest,
+  setError,
+  registerRequest,
+} = actionCreator;
 
 export const registerUser = (payload, redirecUrl) => {
   return (dispatch) => {
@@ -27,7 +25,7 @@ export const registerUser = (payload, redirecUrl) => {
       .then(() => {
         window.location.href = redirecUrl;
       })
-      .catch(err => dispatch(setError(err)));
+      .catch((err) => dispatch(setError(err)));
   };
 };
 
@@ -50,6 +48,8 @@ export const loginUser = ({ email, password }, redirecUrl) => {
       .then(() => {
         window.location.href = redirecUrl;
       })
-      .catch(err => dispatch(setError(err)));
+      .catch((err) => dispatch(setError(err)));
   };
 };
+
+export default actionTypes;
