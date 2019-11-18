@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import authActions from '../actions';
+import authActions from '../actions/users';
 import { setUserPayload } from './mutations/user.mutations';
 
 export const initialState = {

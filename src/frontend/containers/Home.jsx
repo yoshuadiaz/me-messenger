@@ -2,9 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 
 const Home = () => (
-  <Hero>
-    Hero Content
-  </Hero>
+  <Hero />
 );
 
 export default Home;

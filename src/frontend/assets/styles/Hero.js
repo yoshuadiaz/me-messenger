@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+const PRIMARY_COLOR = '#EB5D5D';
+
 export const HeroContainer = styled.section`
   background-image: url(${(props) => props.image});
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-color: #241A1E;
+  background-size: 100px 100px;
   color: #fff;
 `;
 
@@ -22,24 +25,74 @@ export const HeroNavigation = styled.nav`
 `;
 
 export const HeroNavLink = styled(Link)`
-  margin-right: .5em;
-  padding: .5em;
+  margin-right: 1em;
+  padding: .5em 1em;
   display: inline-block;
   text-decoration: none;
   color: white;
-  border-radius: .5em;
+  border-radius: 1em;
   background-color: ${(props) => {
-    return props.isActive ? 'red' : '';
+    return props.isActive ? PRIMARY_COLOR : 'transparent';
   }};
+  border: 1px solid ${PRIMARY_COLOR};
 `;
 
 export const HeroFooter = styled.footer`
   background-image: url(${(props) => props.image});
-  height: 90px;
-  width: 100vw;
-  background-size: 100% 90px;
+  height: 70px;
+  width: 100%;
+  margin-top: 5em;
+  background-repeat: repeat-x;
+  background-size: 515px 71px;
+
 `;
 
 export const HeroBody = styled.article`
   padding: 1em;
 `;
+
+export const HeroLogo = styled.img`
+  width: 200px;
+  height: 80px;
+  object-fit: contain;
+`;
+
+export const HeroContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+export const HeroPresentaction = styled.div`
+  align-items: center;
+  justify-items: center;
+  display: flex;
+
+`;
+
+export const PresentationMessage = styled.div`
+  width: 50%;
+  & p {
+    font-size: 24px;
+    margin-top: 2em;
+  }
+  & h1 {
+    font-size: 52px !important;
+    font-weight: normal;
+  }
+  & em {
+      font-style: normal;
+      font-weight: bolder;
+      color: ${PRIMARY_COLOR};
+      font-size: 60px;
+    }
+`;
+
+export const PresentationImage = styled.figure`
+  width: 50%;
+  margin: 0
+  & img {
+    object-fit: contain;
+    width: 95%;
+  }
+`;
+
