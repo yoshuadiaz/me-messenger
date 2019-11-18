@@ -10,7 +10,7 @@ import chatImg from '../assets/static/user.jpg';
 
 const ChatItem = () => (
   <Chat>
-    <Imgs src={chatImg} alt="Chat" />
+    <Imgs src={chatImg} alt='Chat' />
     <div>
       <h3>Vincent Van Gogh</h3>
       <p>It is good to love many things</p>
@@ -18,7 +18,7 @@ const ChatItem = () => (
     <div>
       <span>10:00 am</span>
       <span>
-        <MdCheck size={16} color="#BBBBBB" />
+        <MdCheck size={16} color='#CBD5E0' />
       </span>
     </div>
   </Chat>

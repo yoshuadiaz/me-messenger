@@ -8,7 +8,6 @@ export const fetchSuccess = (state, { payload }) => ({
   ...state,
   isFetching: false,
   hasError: false,
-  isLoged: !!payload.id,
   data: payload,
 });
 
@@ -16,5 +15,4 @@ export const fetchFailure = (state, _) => ({
   ...state,
   isFetching: false,
   hasError: true,
-  isLoged: false,
 });

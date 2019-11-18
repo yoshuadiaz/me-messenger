@@ -53,7 +53,7 @@ export const MessagesWraper = styled.div`
   }
   &::-webkit-scrollbar-thumb{
     width: 4px;
-    background-color: #BBBBBB;
+    background-color: #CBD5E0;
     border-radius: 4px;
   }
 `;//Conversation.jsx

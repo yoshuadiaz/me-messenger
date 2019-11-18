@@ -8,7 +8,7 @@ const render = (html, preloadedState) => {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Me Messenger</title>
+        <title>KIIN Messenger</title>
       </head>
       <body>
         <div id="app">${html}</div>
