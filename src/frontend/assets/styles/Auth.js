@@ -66,6 +66,7 @@ export const FormAuth = styled.div`
   background-color: #F9F9F9;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0 0 2em;
   h1{
     width: 80%;
     text-align: center;
