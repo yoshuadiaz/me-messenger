@@ -1,5 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+export const colors = {
+  PRIMARY_COLOR: '#EB5D5D',
+  SECONDARY_COLOR: '#50BDBE',
+  BLACK_100: '#4A5568',
+  BLACK_200: '#2D3748',
+  GRAY_100: '#CBD5E0',
+  GRAY_200: '#A0AEC0',
+  SOFT_WHITE: '#F1FAFC',
+};
+
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
