@@ -14,8 +14,6 @@ const Register = () => (
       <form>
         <h2>Nombre</h2>
         <input type="text" name="name" id="name" placeholder="Escribe tu nombre" />
-        <h2>Username</h2>
-        <input type="text" name="username" id="username" placeholder="Escribe tu username" />
         <h2>Correo</h2>
         <input type="email" name="email" id="email" placeholder="Escribe tu email" />
         <h2>Contraseña</h2>
