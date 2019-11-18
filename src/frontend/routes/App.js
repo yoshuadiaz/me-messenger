@@ -17,6 +17,7 @@ const App = ({ isLogged }) => (
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/chats' component={Conversation} />
           <Route exact path='/chats/:id' component={Conversation} />
           <Route component={NotFound} />
         </Switch>
