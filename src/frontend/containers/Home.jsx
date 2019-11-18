@@ -1,19 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Hero from '../components/Hero';
 
 const Home = () => (
-  <div>
-    <h1>Home</h1>
-    <Link to="/chats/1">
-      Conversation
-    </Link>
-    <Link to="/login">
-      Iniciar sesion
-    </Link>
-    <Link to="/register">
-      Registrate
-    </Link>
-  </div>
+  <Hero />
 );
 
 export default Home;
