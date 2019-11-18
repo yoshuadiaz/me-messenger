@@ -18,7 +18,7 @@ import myLogo from '../assets/static/Logo_Wide@3x.png';
 import heroFooter from '../assets/static/hero-footer.png';
 import illustration from '../assets/static/chatIllustration.png';
 
-const Hero = (props) => {
+const Hero = () => {
   return (
     <HeroContainer image={myImage}>
       <HeroContent>
@@ -42,12 +42,17 @@ const Hero = (props) => {
                 El mensajero
                 <br />
                 interactivo para
-                <em>PROFESIONALES NÓMADAS</em>
+                <br />
+                <em>
+                  PROFESIONALES
+                  <br />
+                  NÓMADAS
+                </em>
               </h1>
               <p>Lleva tus proyectos al siguiente nivel con una mejor comunicación sin sacrificar tu confort</p>
             </PresentationMessage>
             <PresentationImage>
-              <img src={illustration} alt="Kiin" />
+              <img src={illustration} alt='Kiin' />
             </PresentationImage>
           </HeroPresentaction>
         </HeroBody>

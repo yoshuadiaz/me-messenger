@@ -16,16 +16,16 @@ import user from '../assets/static/user.jpg';
 const Chats = (props) => (
   <Container>
     <Profile>
-      <Img src={user} alt="user" />
+      <Img src={user} alt='user' />
       <div>
         <h2>Nombre del Usuario</h2>
         <p>subtitulo</p>
       </div>
-      <button type="button">
+      <button type='button'>
         <MdSettings
           size={20}
-          color="#DADADA"
-          aria-label="Icon Settings"
+          color='#DADADA'
+          aria-label='Icon Settings'
         />
       </button>
     </Profile>

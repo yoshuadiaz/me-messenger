@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
-const PRIMARY_COLOR = '#EB5D5D';
+import { colors } from './GlobalStyles';
 
 export const HeroContainer = styled.section`
   background-image: url(${(props) => props.image});
@@ -32,9 +31,9 @@ export const HeroNavLink = styled(Link)`
   color: white;
   border-radius: 1em;
   background-color: ${(props) => {
-    return props.isActive ? PRIMARY_COLOR : 'transparent';
+    return props.isActive ? colors.PRIMARY_COLOR : 'transparent';
   }};
-  border: 1px solid ${PRIMARY_COLOR};
+  border: 1px solid ${colors.PRIMARY_COLOR};
 `;
 
 export const HeroFooter = styled.footer`
@@ -76,15 +75,15 @@ export const PresentationMessage = styled.div`
     margin-top: 2em;
   }
   & h1 {
-    font-size: 52px !important;
+    font-size: 2.5vw !important;
     font-weight: normal;
   }
   & em {
-      font-style: normal;
-      font-weight: bolder;
-      color: ${PRIMARY_COLOR};
-      font-size: 60px;
-    }
+    font-style: normal;
+    font-weight: bolder;
+    color: ${colors.PRIMARY_COLOR};
+    font-size: 3.5vw;
+  }
 `;
 
 export const PresentationImage = styled.figure`

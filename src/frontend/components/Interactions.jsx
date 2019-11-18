@@ -24,32 +24,32 @@ const Interactions = (props) => (
   <Container>
     <Searcher />
     <Contact>
-      <Imgl src={user} alt="user" />
+      <Imgl src={user} alt='user' />
       <h2>Usuario destinatario</h2>
       <p>subtitulo</p>
     </Contact>
     <Wraper>
       <Actions>
         <div>
-          <button type="button">
-            <MdCall size={36} color="#4D7EFB" />
+          <button type='button'>
+            <MdCall size={36} color='#4D7EFB' />
           </button>
           <p>Call</p>
         </div>
         <div>
-          <button type="button">
-            <MdVideocam size={36} color="#4D7EFB" />
+          <button type='button'>
+            <MdVideocam size={36} color='#4D7EFB' />
           </button>
           <p>Video Call</p>
         </div>
       </Actions>
       <MoreActions>
         <p>
-          <MdPersonOutline size={28} color="#BBBBBB" />
+          <MdPersonOutline size={28} color='#CBD5E0' />
           View Friends
         </p>
         <p>
-          <MdFavoriteBorder size={28} color="#BBBBBB" />
+          <MdFavoriteBorder size={28} color='#CBD5E0' />
           Add to Favorite
         </p>
       </MoreActions>
@@ -67,7 +67,7 @@ const Interactions = (props) => (
           <p>mp3</p>
           <p>mp4</p>
         </div>
-        <button type="button">View all</button>
+        <button type='button'>View all</button>
       </Attachments>
     </Wraper>
   </Container>

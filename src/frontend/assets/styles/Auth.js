@@ -1,20 +1,60 @@
 import styled, { css } from 'styled-components';
 
 import { Link as LinkRouter } from 'react-router-dom';
+import { colors } from './GlobalStyles';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 50% 50%;
   grid-template-rows: 100vh;
-  grid-template-areas: "info auth";
+  grid-template-areas: 'info auth';
 `;
 
 export const Background = styled.div`
   grid-area: info;
-  img{
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
+  background-image: url(${(props) => props.image});
+  background-repeat: repeat;
+  background-color: #241A1E;
+  background-size: 100px 100px;
+  color: #fff;
+  padding: 1em 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const Buildings = styled.div`
+  background-image: url(${(props) => props.image});
+  background-repeat: repeat;
+  background-size: 300px 40px;
+  width: 100%;
+  height: 40px;
+`;
+
+export const AuthLogo = styled.figure`
+  & img {
+    width: 150px;
+    height: 50px;
+    object-fit: contain;
+    padding-left: 1em;
+  }
+`;
+
+export const Presentation = styled.div`
+  padding-left: 1em;
+  & p {
+    font-size: 20px;
+    margin-top: 1em;
+  }
+  & h1 {
+    font-size: 3vw !important;
+    font-weight: normal;
+  }
+  & em {
+    font-style: normal;
+    font-weight: bolder;
+    color: ${colors.PRIMARY_COLOR};
+    font-size: 5vw;
   }
 `;
 
@@ -26,6 +66,7 @@ export const FormAuth = styled.div`
   background-color: #F9F9F9;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0 0 2em;
   h1{
     width: 80%;
     text-align: center;
@@ -51,7 +92,7 @@ export const FormAuth = styled.div`
       height: 30px;
       margin: 0 auto;
       text-indent: 10px;
-      background-color: #BBBBBB;
+      background-color: #CBD5E0;
       border-radius: 30px;
       border: none;
       outline: 0;
@@ -61,8 +102,8 @@ export const FormAuth = styled.div`
       height: 30px;
       margin: 10px auto 20px;
       border-radius: 30px;
-      border: 2px solid #4D7EFB;
-      color: #4D7EFB;
+      border: 2px solid ${colors.PRIMARY_COLOR};
+      color: ${colors.PRIMARY_COLOR};
       &:hover{
         cursor: pointer;
       }
