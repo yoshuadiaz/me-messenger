@@ -1,6 +1,5 @@
-export const setUserPayload = (state, { payload: { token, email, name, id } }) => ({
+export const setUserPayload = (state, { payload: { email, name, id } }) => ({
   ...state,
-  token,
   email,
   name,
   id,
