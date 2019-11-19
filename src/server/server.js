@@ -6,22 +6,30 @@ import axios from 'axios';
 import passport from 'passport';
 import boom from '@hapi/boom';
 import cookieParser from 'cookie-parser';
+import session from 'express-session';
 import main from './routes/main';
 
 dotenv.config();
 
 const ENV = process.env.NODE_ENV;
-const app = express();
 const PORT = process.env.PORT || 3000;
+const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(`${__dirname}/public`));
 
 //Basic strategy
 require('./utils/strategies/basic');
+
+//OAuth strategy
+require('./utils/strategies/oauth');
+
+//Twitter strategy
+require('./utils/strategies/twitter');
 
 if (ENV === 'development') {
   console.log('Loading dev config');
@@ -90,6 +98,50 @@ app.post('/auth/sign-up', async (req, res, next) => {
     next(error);
   }
 });
+
+app.get("/auth/google-oauth", passport.authenticate("google-oauth", {
+  scope: ["email", "profile", "openid"]
+}));
+
+app.get(
+  "/auth/google-oauth/callback",
+  passport.authenticate("google-oauth", { session: false }),
+  function (req, res, next) {
+    if (!req.user) {
+      next(boom.unauthorized());
+    }
+
+    const { token, ...user } = req.user;
+
+    res.cookie("token", token, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+
+    res.status(200).json(user.user);
+  }
+);
+
+app.get("/auth/twitter", passport.authenticate("twitter"));
+
+app.get(
+  "/auth/twitter/callback",
+  passport.authenticate("twitter", { session: false }),
+  function (req, res, next) {
+    if (!req.user) {
+      next(boom.unauthorized());
+    }
+
+    const { token, ...user } = req.user;
+
+    res.cookie("token", token, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+
+    res.status(200).json(user.user);
+  }
+);
 
 app.get('*', main);
 

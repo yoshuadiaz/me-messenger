@@ -10,6 +10,7 @@ import Layout from '../../frontend/components/Layout';
 import reducer from '../../frontend/reducers';
 import render from '../render';
 import initialStateFromFrontEnd from '../../frontend/initialState';
+import axios from 'axios';
 
 require('dotenv').config();
 
@@ -21,21 +22,32 @@ const main = async (req, res, next) => {
       const { token, email, name, id } = req.cookies;
       let { user } = initialStateFromFrontEnd;
       if (email || name || id) {
-        user = {
+        user.data = {
           id,
           email,
           name,
         };
+      } else {
+        user.data = {};
       }
+
+      let conversations = await axios({
+        url: `${process.env.API_URL}/api/chats`,
+        headers: { Authorization: `Bearer ${token}` },
+        method: 'get'
+      });
+
+      conversations = conversations.data.data;
 
       initialState = {
         ...initialStateFromFrontEnd,
         user,
+        conversations
       };
     } catch (error) {
       initialState = initialStateFromFrontEnd;
     }
-    const isLogged = (initialState.user.id);
+    const isLogged = (initialState.user.data.id);
     const store = createStore(reducer, initialState);
     const html = renderToString(
       <StyleSheetManager sheet={sheet.instance}>
