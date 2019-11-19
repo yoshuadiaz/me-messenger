@@ -4,7 +4,6 @@ import {
   HeroHeader,
   HeroBrand,
   HeroNavigation,
-  HeroNavLink,
   HeroFooter,
   HeroBody,
   HeroLogo,
@@ -13,6 +12,7 @@ import {
   PresentationMessage,
   PresentationImage,
 } from '../assets/styles/Hero';
+import { NavLink } from '../assets/styles/GlobalStyles';
 import myImage from '../assets/static/backHero.png';
 import myLogo from '../assets/static/Logo_Wide@3x.png';
 import heroFooter from '../assets/static/hero-footer.png';
@@ -27,12 +27,12 @@ const Hero = () => {
             <HeroLogo src={myLogo} alt='' />
           </HeroBrand>
           <HeroNavigation>
-            <HeroNavLink to='/login'>
+            <NavLink to='/login'>
               Iniciar sesion
-            </HeroNavLink>
-            <HeroNavLink to='/register' isActive='true'>
+            </NavLink>
+            <NavLink to='/register' bgprimary='true'>
               Registrate
-            </HeroNavLink>
+            </NavLink>
           </HeroNavigation>
         </HeroHeader>
         <HeroBody>

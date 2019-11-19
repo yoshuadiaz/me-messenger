@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { Link as LinkRouter } from 'react-router-dom';
 import { colors } from './GlobalStyles';
 
 export const Container = styled.div`
@@ -97,22 +96,12 @@ export const FormAuth = styled.div`
       border: none;
       outline: 0;
     }
-    button{
-      width: 120px;
-      height: 30px;
-      margin: 10px auto 20px;
-      border-radius: 30px;
-      border: 2px solid ${colors.PRIMARY_COLOR};
-      color: ${colors.PRIMARY_COLOR};
-      &:hover{
-        cursor: pointer;
-      }
-    }
   }
   div{
     display: flex;
     width: 80%;
     margin: 10px auto;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
   }
@@ -120,8 +109,9 @@ export const FormAuth = styled.div`
 
 export const Anchor = styled.a`
   display: flex;
+  width: 45%;
   height: 30px;
-  margin: 5px 0 5px 20%;
+  margin: 5px;
   color: black;
   text-decoration: none;
   align-items: center;
@@ -133,33 +123,10 @@ export const Anchor = styled.a`
   svg{
     margin-right: 10px;
   }
-`;
-
-export const Link = styled(LinkRouter)`
-  width: 60%;
-  margin: 15px auto;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  &:hover{
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  ${(props) => props.btnregister && css`
+  ${(props) => props.margin && css`
     {
-      display: flex;
-      width: 120px;
-      height: 30px;
-      margin: 0 auto;
-      border: 2px solid #20AE2A;
-      color: #20AE2A;
-      border-radius: 30px;
-      align-items: center;
-      justify-content: center;
-      &:hover{
-      cursor: pointer;
-      text-decoration: none;
-    }
+      margin: 10px auto;
+      width: auto;
     }     
   `}
 `;

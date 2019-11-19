@@ -1,61 +1,58 @@
-import React from 'react';
-import { FaTwitter, FaGoogle, FaFacebook } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { registerUser } from '../actions/users';
 
 import back from '../assets/static/backHero.png';
-import logo from '../assets/static/Logo_Wide@3x.png';
-import buildingImg from '../assets/static/hero-footer.png';
 
-import { Container, Background, FormAuth, Anchor, AuthLogo, Presentation, Buildings } from '../assets/styles/Auth';
+import { Container, Background, FormAuth } from '../assets/styles/Auth';
+import { Button } from '../assets/styles/GlobalStyles';
 
-const Register = () => (
-  <Container>
-    <Background image={back}>
-      <AuthLogo>
-        <img src={logo} alt='Kiin' />
-      </AuthLogo>
-      <Presentation isFull>
-        <h1>
-          El mensajero
-          <br />
-          interactivo para
-          <br />
-          <em>
-            PROFESIONALES
-            <br />
-            NÓMADAS
-          </em>
-        </h1>
-        <p>Lleva tus proyectos al siguiente nivel con una mejor comunicación sin sacrificar tu confort</p>
-      </Presentation>
-      <Buildings image={buildingImg} />
-    </Background>
-    <FormAuth>
-      <h1>Registrate</h1>
-      <form>
-        <h2>Nombre</h2>
-        <input type="text" name="name" id="name" placeholder="Escribe tu nombre" />
-        <h2>Correo</h2>
-        <input type='email' name='email' id='email' placeholder='Escribe tu email' />
-        <h2>Contraseña</h2>
-        <input type='password' name='password' id='password' placeholder='Escribe tu contraseña' />
-        <button type='submit'>Registrate</button>
-      </form>
-      <div>
-        <Anchor href='hhtps://google.com'>
-          <FaGoogle size={28} color='#CBD5E0' />
-          Registrate con Google
-        </Anchor>
-        <Anchor href='https://twitter.com'>
-          <FaTwitter size={28} color='#CBD5E0' />
-          Registrate con Twitter
-        </Anchor>
-        <Anchor href='https://facebook.com'>
-          <FaFacebook size={28} color='#CBD5E0' />
-          Registrate con Facebook
-        </Anchor>
-      </div>
-    </FormAuth>
-  </Container>
-);
+import AuthBackground from '../components/AuthBackground';
+import AuthSocials from '../components/AuthSocials';
 
-export default Register;
+const Register = (props) => {
+  const [form, setValues] = useState({
+    email: '',
+    name: '',
+    password: '',
+  });
+
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.registerUser(form, '/login');
+  };
+
+  return (
+    <Container>
+      <Background image={back}>
+        <AuthBackground isFull />
+      </Background>
+      <FormAuth>
+        <h1>Registrate</h1>
+        <form onSubmit={handleSubmit}>
+          <h2>Nombre</h2>
+          <input type="text" name="name" placeholder="Escribe tu nombre" onChange={handleInput} required />
+          <h2>Correo</h2>
+          <input type='email' name='email' placeholder='Escribe tu email' onChange={handleInput} required />
+          <h2>Contraseña</h2>
+          <input type='password' name='password' placeholder='Escribe tu contraseña' onChange={handleInput} required />
+          <Button type='submit'>Registrate</Button>
+        </form>
+        <AuthSocials registro />
+      </FormAuth>
+    </Container>
+  );
+};
+
+const mapDispatchToProps = {
+  registerUser,
+};
+
+export default connect(null, mapDispatchToProps)(Register);

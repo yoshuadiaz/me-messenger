@@ -1,4 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { css, createGlobalStyle } from 'styled-components';
+import { Link as LinkRouter } from 'react-router-dom';
 
 export const colors = {
   PRIMARY_COLOR: '#EB5D5D',
@@ -56,4 +57,88 @@ export const Imgsx = styled(Img)`
 export const Imgl = styled(Img)`
   max-width: 100px;
   max-height: 100px;
+`;
+
+export const Link = styled(LinkRouter)`
+  margin: 15px auto;
+  padding: 5px 10px;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 2px solid ${colors.PRIMARY_COLOR};
+  color: ${colors.PRIMARY_COLOR};
+  text-decoration: none;
+  &:hover{
+    cursor: pointer;
+  }
+  &:active{
+    transform: scale(.9);
+  }
+  ${(props) => props.bgprimary && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.PRIMARY_COLOR};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
+`;
+
+export const Linksx = styled(Link)`
+
+`;
+
+export const Links = styled(Link)`
+
+`;
+
+export const Linkm = styled(Link)`
+
+`;
+
+export const Linkl = styled(Link)`
+
+`;
+
+export const NavLink = styled(Link)`
+  margin-right: 1em;
+  padding: .5em 1em;
+  display: inline-block;
+  color: white;
+  border-radius: 1em;
+  border: 1px solid ${colors.PRIMARY_COLOR};
+`;
+
+export const Button = styled.button`
+  width: 120px;
+  height: 30px;
+  margin: 15px auto;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 2px solid ${colors.PRIMARY_COLOR};
+  color: ${colors.PRIMARY_COLOR};
+  &:hover{
+    cursor: pointer;
+  }
+  &:active{
+    transform: scale(.9);
+  }
+  ${(props) => props.bgprimary && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.PRIMARY_COLOR};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
+`;
+
+export const Buttonsx = styled(Button)`
+
+`;
+export const Buttons = styled(Button)`
+
+`;
+export const Buttonm = styled(Button)`
+
+`;
+export const Buttonl = styled(Button)`
+
 `;

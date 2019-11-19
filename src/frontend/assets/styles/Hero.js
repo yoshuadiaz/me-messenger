@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { colors } from './GlobalStyles';
 
 export const HeroContainer = styled.section`
@@ -21,19 +20,6 @@ export const HeroBrand = styled.figure`
 export const HeroNavigation = styled.nav`
   display: flex;
   align-items: center;
-`;
-
-export const HeroNavLink = styled(Link)`
-  margin-right: 1em;
-  padding: .5em 1em;
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  border-radius: 1em;
-  background-color: ${(props) => {
-    return props.isActive ? colors.PRIMARY_COLOR : 'transparent';
-  }};
-  border: 1px solid ${colors.PRIMARY_COLOR};
 `;
 
 export const HeroFooter = styled.footer`
