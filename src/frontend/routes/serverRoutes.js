@@ -2,6 +2,8 @@ import Home from '../containers/Home';
 import Login from '../containers/Login';
 import Register from '../containers/Register';
 import Conversation from '../containers/Conversation';
+import Conversations from '../containers/Conversations';
+import Profile from '../containers/Profile';
 import NotFound from '../containers/NotFound';
 
 const serverRoutes = (isLogged) => {
@@ -13,17 +15,27 @@ const serverRoutes = (isLogged) => {
     },
     {
       path: '/login',
-      component: Login,
+      component: isLogged ? Conversations : Login,
       exact: true
     },
     {
       path: '/register',
-      component: Register,
+      component: isLogged ? Profile : Register,
+      exact: true
+    },
+    {
+      path: '/chats',
+      component: isLogged ? Conversations : Login,
       exact: true
     },
     {
       path: '/chats/:id',
-      component: Conversation,
+      component: isLogged ? Conversation : Login,
+      exact: true
+    },
+    {
+      path: '/profile',
+      component: isLogged ? Profile : Login,
       exact: true
     },
     {
