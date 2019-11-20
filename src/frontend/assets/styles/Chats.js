@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   grid-area: chats;
@@ -65,11 +66,12 @@ export const ChatsWrapper = styled.div`
   }
 `;//Chats.jsx
 
-export const Chat = styled.div`
+export const Chat = styled(Link)`
   display: flex;
   height: 65px;
   margin: 10px 0;
   align-items: center;
+  text-decoration: none;
   &:hover{
     background-color: #DADADA;
     cursor: pointer;
@@ -91,15 +93,22 @@ export const Chat = styled.div`
     }
     h3{
       display: flex;
-      width: 100%;
+      width: 15vw;
       height: 34px;
       font-size: 18px;
       color: #4D7EFB;
       align-items: center;
       justify-content: space-between;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     p{
       height: 16px;
+      max-width: 10vw;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
       font-size: 14px;
       color: rgba(0, 0, 0, .75);
       overflow: hidden;

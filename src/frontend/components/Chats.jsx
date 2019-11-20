@@ -17,7 +17,7 @@ import Searcher from './Searcher';
 import userImage from '../assets/static/user.jpg';
 
 const Chats = (props) => {
-  const { user } = props;
+  const { user, conversations } = props;
   const hasUser = Object.keys(user.data).length > 0;
 
   const handleLogout = () => {
@@ -58,14 +58,7 @@ const Chats = (props) => {
       </Profile>
       <Searcher />
       <ChatsWrapper>
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
+        {conversations && conversations.length > 0 && conversations.map((conv) => <ChatItem key={conv._id} data={conv} />)}
       </ChatsWrapper>
     </Container>
   );
