@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from './GlobalStyles';
 
 export const Container = styled.div`
   grid-area: chats;
@@ -16,12 +17,14 @@ export const Container = styled.div`
 `;//Chats.jsx
 
 export const Profile = styled.div`
+  position: relative;
   display: flex;
   height: 60px;
   align-items: center;
   margin: 15px 0;
   div{
     display: flex;
+    min-width: 60%;
     align-items: center;
     margin-left: 10px;
     flex-wrap: wrap;
@@ -35,14 +38,32 @@ export const Profile = styled.div`
       color: rgba(0, 0, 0, .8);
     }
   }
-  button{
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    border-radius: 50%;
-    &:hover{
-      cursor: pointer;
+  ul{
+    position: absolute;
+    display: none;
+    padding-top: 5px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 140px;
+    height: 85px;
+    top: -10px;
+    right: -120px;
+    background-color: ${colors.GRAY_100};
+    border-radius: 10px;
+    button,
+    a{
+      margin: 0 10px;
     }
+  }
+  span{
+    position: absolute;
+    display: none;
+    width: 10px;
+    height: 10px;
+    background-color: ${colors.GRAY_100};
+    transform: rotate(45deg);
+    top: 25px;
+    right: 15px;
   }
 `;//Chats.jsx
 
@@ -62,6 +83,9 @@ export const ChatsWrapper = styled.div`
     width: 2px;
     background-color: #CBD5E0;
     border-radius: 2px;
+  }
+  a{
+    text-decoration: none;
   }
 `;//Chats.jsx
 

@@ -142,3 +142,13 @@ export const Buttonm = styled(Button)`
 export const Buttonl = styled(Button)`
 
 `;
+
+export const Icons = styled.button`
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+  &:hover{
+    cursor: pointer;
+  }
+`;

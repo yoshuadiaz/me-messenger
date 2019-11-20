@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { MdSettings } from 'react-icons/md';
 import gravatar from '../utils/gravatar';
 import { logoutRequest } from '../actions/users';
@@ -9,7 +10,7 @@ import {
   Profile,
   ChatsWrapper,
 } from '../assets/styles/Chats';
-import { Img, Link, Button } from '../assets/styles/GlobalStyles';
+import { Img, Link, Button, Icons } from '../assets/styles/GlobalStyles';
 
 import ChatItem from './ChatItem';
 import Searcher from './Searcher';
@@ -29,6 +30,19 @@ const Chats = (props) => {
     window.location.href = '/login';
   };
 
+  const handleAcount = () => {
+    const btns = document.getElementById('acountActions');
+    const decorator = document.getElementById('decoratorAcount');
+
+    if (btns.style.display === 'flex' && decorator.style.display === 'block') {
+      btns.style.display = 'none';
+      decorator.style.display = 'none';
+    } else {
+      btns.style.display = 'flex';
+      decorator.style.display = 'block';
+    }
+  };
+
   return (
     <Container>
       <Profile>
@@ -44,21 +58,24 @@ const Chats = (props) => {
           }
           <p>subtitulo</p>
         </div>
-        <button type='button'>
+        <Icons onClick={handleAcount}>
           <MdSettings
             size={20}
             color='#DADADA'
             aria-label='Icon Settings'
           />
-        </button>
-        <ul>
-          <li><Link to="/profile">Perfil</Link></li>
+        </Icons>
+        <ul id="acountActions">
+          <li><Link to="/profile" onClick={handleAcount}>Perfil</Link></li>
           <li><Button onClick={handleLogout}>Cerrar sesion</Button></li>
         </ul>
+        <span id="decoratorAcount" />
       </Profile>
       <Searcher />
       <ChatsWrapper>
-        <ChatItem />
+        <NavLink to="/chats/1" activeStyle={{ color: '#50BDBE' }}>
+          <ChatItem />
+        </NavLink>
         <ChatItem />
         <ChatItem />
         <ChatItem />

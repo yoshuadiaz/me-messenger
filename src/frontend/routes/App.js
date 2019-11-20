@@ -14,7 +14,7 @@ const App = ({ isLogged }) => (
   <>
     <GlobalStyles />
     <BrowserRouter>
-      <Layout>
+      <Layout isLogged={isLogged}>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={isLogged ? Conversations : Login} />

@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-// import { Link as LinkRouter } from 'react-router-dom';
-
-// import { colors } from './GlobalStyles';
 
 export const Container = styled.div`
   width: 100vw;
