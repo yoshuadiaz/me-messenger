@@ -11,8 +11,13 @@ export const colors = {
   SOFT_WHITE: '#F1FAFC',
 };
 
+export const fonts = {
+  TITUTLOS: "'Baloo Bhai', cursive",
+  GENERAL: "'Josefin Sans', sans-serif",
+};
+
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Josefin+Sans:400,700&display=swap');
 
   html {
     box-sizing: border-box;
@@ -30,7 +35,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100vh;
     width: 100%; 
     background: #fefefe;
-    font-family: 'Lato', sans-serif;
+    font-family: ${fonts.GENERAL};
   }
 `;
 
@@ -91,7 +96,9 @@ export const Links = styled(Link)`
 `;
 
 export const Linkm = styled(Link)`
-
+  margin: 20px auto;
+  padding: 10px 20px;
+  border-radius: 40px;
 `;
 
 export const Linkl = styled(Link)`
@@ -128,27 +135,140 @@ export const Button = styled.button`
       color: ${colors.SOFT_WHITE};
     }     
   `}
+  ${(props) => props.bgsecondary && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.SECONDARY_COLOR};
+      border: 2px solid ${colors.SECONDARY_COLOR};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
+  ${(props) => props.bgblack100 && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.BLACK_100};
+      border: 2px solid ${colors.BLACK_100};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
+  ${(props) => props.bgblack200 && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.BLACK_200};
+      border: 2px solid ${colors.BLACK_200};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
+  ${(props) => props.bggray100 && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.GRAY_100};
+      border: 2px solid ${colors.GRAY_100};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
+  ${(props) => props.bggray200 && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.GRAY_200};
+      border: 2px solid ${colors.GRAY_200};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
+  ${(props) => props.bgsoftwhite && css`
+    {
+      margin: 5px auto;
+      background-color: ${colors.SOFT_WHITE};
+      border: 2px solid ${colors.SOFT_WHITE};
+      color: ${colors.BLACK_100};
+    }     
+  `}
+  ${(props) => props.bsecondary && css`
+    {
+      margin: 5px auto;
+      border: 2px solid ${colors.SECONDARY_COLOR};
+      color: ${colors.SECONDARY_COLOR};
+    }     
+  `}
+  ${(props) => props.bblack100 && css`
+    {
+      margin: 5px auto;
+      border: 2px solid ${colors.BLACK_100};
+      color: ${colors.BLACK_100};
+    }     
+  `}
+  ${(props) => props.bblack200 && css`
+    {
+      margin: 5px auto;
+      border: 2px solid ${colors.BLACK_200};
+      color: ${colors.BLACK_200};
+    }     
+  `}
+  ${(props) => props.bgray100 && css`
+    {
+      margin: 5px auto;
+      border: 2px solid ${colors.GRAY_100};
+      color: ${colors.GRAY_100};
+    }     
+  `}
+  ${(props) => props.bgray200 && css`
+    {
+      margin: 5px auto;
+      border: 2px solid ${colors.GRAY_200};
+      color: ${colors.GRAY_200};
+    }     
+  `}
+  ${(props) => props.bsoftwhite && css`
+    {
+      margin: 5px auto;
+      border: 2px solid ${colors.SOFT_WHITE};
+      color: ${colors.SOFT_WHITE};
+    }     
+  `}
 `;
 
 export const Buttonsx = styled(Button)`
-
+  width: 80px;
+  height: 20px;
+  margin: 10px auto;
+  border-radius: 20px;
 `;
 export const Buttons = styled(Button)`
-
+  width: 100px;
+  height: 30px;
+  margin: 10px auto;
 `;
 export const Buttonm = styled(Button)`
-
+  width: 140px;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 40px;
 `;
 export const Buttonl = styled(Button)`
 
 `;
 
-export const Icons = styled.button`
-  width: 20px;
-  height: 20px;
+export const Icon = styled.button`
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
   border-radius: 50%;
   &:hover{
     cursor: pointer;
   }
+`;
+
+export const Icons = styled(Icon)`
+  width: 20px;
+  height: 20px;
+`;
+
+export const Iconm = styled(Icon)`
+  width: 40px;
+  height: 40px;
+`;
+
+export const Iconl = styled(Icon)`
+  width: 50px;
+  height: 50px;
 `;
