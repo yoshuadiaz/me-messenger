@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   MdSearch,
   MdFavoriteBorder,
@@ -24,7 +24,18 @@ import Message from './Message';
 import user from '../assets/static/user.jpg';
 
 const ConversationSection = (props) => {
-  const { data: { title, messages }, me } = props;
+  const {
+    data: {
+      title,
+      messages,
+      members,
+      _id,
+    },
+    me,
+    handleSaveMessage,
+  } = props;
+
+  const [message, setMessage] = useState('');
   return (
     <Container>
       <Header>
@@ -56,7 +67,7 @@ const ConversationSection = (props) => {
         ))}
       </MessagesWraper>
       <SendMessage>
-        <input type='text' placeholder='Write a text' />
+        <input type='text' placeholder='Write a text' onChange={(e) => setMessage(e.target.value)} />
         <ButtonsWraper>
           <button type='button'>
             <MdKeyboardVoice size={25} color='#CBD5E0' />
@@ -71,7 +82,18 @@ const ConversationSection = (props) => {
             <MdInsertEmoticon size={25} color='#CBD5E0' />
           </button>
           <button type='button'>
-            <MdSend size={32} color='white' />
+            <MdSend
+              size={32}
+              color='white'
+              onClick={() => handleSaveMessage({
+                inChat: _id,
+                from: me,
+                to: members[0],
+                type: 'text',
+                content: message,
+                created_at: new Date(),
+              })}
+            />
           </button>
         </ButtonsWraper>
       </SendMessage>

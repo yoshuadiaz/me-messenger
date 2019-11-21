@@ -7,6 +7,7 @@ import ConversationSection from '../components/ConversationSection';
 
 import Chats from '../components/Chats';
 import { getActualConversation } from '../actions/actualConversation';
+import { saveMessage } from '../actions/messages';
 
 const Conversation = (props) => {
   const {
@@ -14,6 +15,7 @@ const Conversation = (props) => {
     actualConversation,
     getActualConversation,
     userId,
+    saveMessage,
   } = props;
   return (
     <Container>
@@ -23,7 +25,13 @@ const Conversation = (props) => {
       />
       {!actualConversation.isFetching && actualConversation.data.messages && !(actualConversation.data.messages.length > 0) && <p>No hay nada que mostrar</p>}
       {actualConversation.isFetching && <p>loading...</p>}
-      {!actualConversation.isFetching && !actualConversation.hasError && actualConversation.data.messages && actualConversation.data.messages.length > 0 && <ConversationSection data={actualConversation.data} me={userId} />}
+      {!actualConversation.isFetching && !actualConversation.hasError && actualConversation.data.messages && actualConversation.data.messages.length > 0 && (
+        <ConversationSection
+          data={actualConversation.data}
+          me={userId}
+          handleSaveMessage={saveMessage}
+        />
+      )}
     </Container>
   );
 };
@@ -36,6 +44,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getActualConversation,
+  saveMessage,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Conversation);
