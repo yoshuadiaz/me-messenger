@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from './GlobalStyles';
+// import { colors } from './GlobalStyles';
 
 export const Container = styled.div`
   grid-area: chats;
@@ -48,8 +48,9 @@ export const Profile = styled.div`
     height: 85px;
     top: -10px;
     right: -120px;
-    background-color: ${colors.GRAY_100};
+    background-color: #DADADA;
     border-radius: 10px;
+    z-index: 99;
     button,
     a{
       margin: 0 10px;
@@ -60,7 +61,7 @@ export const Profile = styled.div`
     display: none;
     width: 10px;
     height: 10px;
-    background-color: ${colors.GRAY_100};
+    background-color: #DADADA;
     transform: rotate(45deg);
     top: 25px;
     right: 15px;
@@ -86,6 +87,15 @@ export const ChatsWrapper = styled.div`
   }
   a{
     text-decoration: none;
+  }
+  button{
+    position: fixed;
+    bottom: 10px;
+    left: 250px;
+    :hover{
+      background: repeating-radial-gradient(#CBD5E0, transparent 100px);
+      box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2);
+    }
   }
 `;//Chats.jsx
 

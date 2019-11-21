@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { MdSettings } from 'react-icons/md';
+import { MdSettings, MdAdd } from 'react-icons/md';
 import gravatar from '../utils/gravatar';
 import { logoutRequest } from '../actions/users';
 
@@ -10,7 +10,7 @@ import {
   Profile,
   ChatsWrapper,
 } from '../assets/styles/Chats';
-import { Img, Link, Button, Icons } from '../assets/styles/GlobalStyles';
+import { Img, Link, Button, Icons, Iconm } from '../assets/styles/GlobalStyles';
 
 import ChatItem from './ChatItem';
 import Searcher from './Searcher';
@@ -58,15 +58,15 @@ const Chats = (props) => {
           }
           <p>subtitulo</p>
         </div>
-        <Icons onClick={handleAcount}>
+        <Icons onMouseEnter={handleAcount}>
           <MdSettings
             size={20}
             color='#DADADA'
             aria-label='Icon Settings'
           />
         </Icons>
-        <ul id="acountActions">
-          <li><Link to="/profile" onClick={handleAcount}>Perfil</Link></li>
+        <ul onMouseLeave={handleAcount} id="acountActions">
+          <li><Link to="/profile">Perfil</Link></li>
           <li><Button onClick={handleLogout}>Cerrar sesion</Button></li>
         </ul>
         <span id="decoratorAcount" />
@@ -83,6 +83,13 @@ const Chats = (props) => {
         <ChatItem />
         <ChatItem />
         <ChatItem />
+        <Iconm>
+          <MdAdd
+            size={30}
+            color='#EB5D5D'
+            aria-label='Icon New Coversation'
+          />
+        </Iconm>
       </ChatsWrapper>
     </Container>
   );
