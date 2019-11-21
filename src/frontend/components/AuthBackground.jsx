@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import logo from '../assets/static/Logo_Wide@3x.png';
 import buildingImg from '../assets/static/hero-footer.png';
 
@@ -8,7 +8,9 @@ import { AuthLogo, Presentation, Buildings } from '../assets/styles/Auth';
 const AuthBackground = ({ isFull }) => (
   <>
     <AuthLogo>
-      <img src={logo} alt='Kiin' />
+      <Link to="/">
+        <img src={logo} alt='Kiin' />
+      </Link>
     </AuthLogo>
     <Presentation isFull={isFull}>
       <h1>
