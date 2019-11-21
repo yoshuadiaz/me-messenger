@@ -20,28 +20,29 @@ const main = async (req, res, next) => {
     let initialState;
     try {
       const { token, email, name, id } = req.cookies;
-      let { user } = initialStateFromFrontEnd;
+      let { user: userLogged, conversations } = initialStateFromFrontEnd;
+
       if (email || name || id) {
-        user.data = {
+        userLogged.data = {
           id,
           email,
           name,
         };
       } else {
-        user.data = {};
+        userLogged.data = {};
       }
 
-      let conversations = await axios({
-        url: `${process.env.API_URL}/api/chats`,
+      let AllConversations = await axios({
+        url: `${process.env.API_URL}/api/chats/user/${id}`,
         headers: { Authorization: `Bearer ${token}` },
         method: 'get'
       });
 
-      conversations = conversations.data.data;
+      conversations.data = AllConversations.data.data;
 
       initialState = {
         ...initialStateFromFrontEnd,
-        user,
+        user: userLogged,
         conversations
       };
     } catch (error) {

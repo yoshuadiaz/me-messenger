@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { MdSettings, MdAdd } from 'react-icons/md';
 import gravatar from '../utils/gravatar';
 import { logoutRequest } from '../actions/users';
+import { getActualConversation } from '../actions/actualConversation';
 
 import {
   Container,
@@ -18,7 +19,7 @@ import Searcher from './Searcher';
 import userImage from '../assets/static/user.jpg';
 
 const Chats = (props) => {
-  const { user } = props;
+  const { user, conversations, getActualConversation } = props;
   const hasUser = Object.keys(user.data).length > 0;
 
   const handleLogout = () => {
@@ -49,7 +50,7 @@ const Chats = (props) => {
         {
           hasUser ?
             <Img src={gravatar(user.data.email)} alt={user.data.email} /> :
-            <Img src={userImage} alt="" />
+            <Img src={userImage} alt='' />
         }
         <div>
           {
@@ -73,16 +74,14 @@ const Chats = (props) => {
       </Profile>
       <Searcher />
       <ChatsWrapper>
-        <NavLink to="/chats/1" activeStyle={{ color: '#50BDBE' }}>
-          <ChatItem />
-        </NavLink>
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
-        <ChatItem />
+        {conversations && conversations.length > 0 && conversations.map((conv) => (
+          <NavLink key={conv._id} to={`/chats/${conv._id}`} activeStyle={{ color: '#50BDBE' }}>
+            <ChatItem
+              data={conv}
+              handleOpenChat={getActualConversation}
+            />
+          </NavLink>
+        ))}
         <Iconm>
           <MdAdd
             size={30}
@@ -95,14 +94,14 @@ const Chats = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
+const mapStateToProps = (state) => ({
+  conversations: state.conversations.data,
+  user: state.user,
+});
 
 const mapDispatchToProps = {
   logoutRequest,
+  getActualConversation,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chats);

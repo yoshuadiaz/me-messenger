@@ -143,6 +143,76 @@ app.get(
   }
 );
 
+app.get('/chats/user/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const { token } = req.cookies;
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/chats/user/${id}`,
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get('/chats/actual/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const { token } = req.cookies;
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/chats/actual/${id}`,
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post('/messages', async (req, res, next) => {
+  const { token } = req.cookies;
+
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/messages/chat/`,
+      method: 'post',
+      data: req.body,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    res.status(200).json(response.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get('/messages/chat/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const { token } = req.cookies;
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/messages/chat/${id}`,
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get('*', main);
 
 app.listen(PORT, err => {

@@ -70,7 +70,7 @@ export const Profile = styled.div`
 
 export const ChatsWrapper = styled.div`
   max-height: calc(100vh - 126px);
-  overflow-y: hidden;
+  overflow: hidden;
   margin-right: 5px;
   &:hover{
     overflow-y: scroll;
@@ -125,15 +125,22 @@ export const Chat = styled.div`
     }
     h3{
       display: flex;
-      width: 100%;
+      width: 15vw;
       height: 34px;
       font-size: 18px;
       color: #4D7EFB;
       align-items: center;
       justify-content: space-between;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     p{
       height: 16px;
+      max-width: 10vw;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
       font-size: 14px;
       color: rgba(0, 0, 0, .75);
       overflow: hidden;
