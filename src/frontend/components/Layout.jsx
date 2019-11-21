@@ -9,9 +9,9 @@ import Chats from './Chats';
 
 const LayoutWithRouter = (props) => {
   const { children, isLogged, history: { location: { pathname } } } = props;
-  let content;
+  let content = false;
 
-  if ((pathname === '/' || pathname === '/login' || pathname === '/register' || pathname === '/chats' || pathname === '/profile') && !isLogged) {
+  if (((pathname === '/' || pathname === '/login' || pathname === '/register' || pathname === '/chats' || pathname === '/profile' || pathname !== '/') && !isLogged)) {
     return (
       <>
         <GlobalStyles />
@@ -22,8 +22,13 @@ const LayoutWithRouter = (props) => {
 
   if ((pathname === '/login' || pathname === '/register' || pathname === '/chats' || pathname === '/profile') && isLogged) {
     content = true;
-  } else {
-    content = false;
+  } else if ((pathname === '/') && isLogged) {
+    return (
+      <>
+        <GlobalStyles />
+        <div>{children}</div>
+      </>
+    );
   }
 
   return (
