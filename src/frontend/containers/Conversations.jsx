@@ -3,20 +3,39 @@ import { connect } from 'react-redux';
 import {
   Container,
 } from '../assets/styles/Conversation';
+import ConversationSection from '../components/ConversationSection';
 
 import Chats from '../components/Chats';
+import { getActualConversation } from '../actions/actualConversation';
 
 const Conversation = (props) => {
-  const { conversations } = props;
+  const {
+    conversations,
+    actualConversation,
+    getActualConversation,
+    userId,
+  } = props;
   return (
     <Container>
-      <Chats conversations={conversations} />
+      <Chats
+        conversations={conversations}
+        handleOpenChat={getActualConversation}
+      />
+      {!actualConversation.isFetching && actualConversation.data.messages && !(actualConversation.data.messages.length > 0) && <p>No hay nada que mostrar</p>}
+      {actualConversation.isFetching && <p>loading...</p>}
+      {!actualConversation.isFetching && !actualConversation.hasError && actualConversation.data.messages && actualConversation.data.messages.length > 0 && <ConversationSection data={actualConversation.data} me={userId} />}
     </Container>
   );
 };
 
 const mapStateToProps = (state) => ({
   conversations: state.conversations,
+  actualConversation: state.actualConversation,
+  userId: state.user.data.id,
 });
 
-export default connect(mapStateToProps, null)(Conversation);
+const mapDispatchToProps = {
+  getActualConversation,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Conversation);

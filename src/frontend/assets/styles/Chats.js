@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   grid-area: chats;
@@ -66,12 +65,11 @@ export const ChatsWrapper = styled.div`
   }
 `;//Chats.jsx
 
-export const Chat = styled(Link)`
+export const Chat = styled.div`
   display: flex;
   height: 65px;
   margin: 10px 0;
   align-items: center;
-  text-decoration: none;
   &:hover{
     background-color: #DADADA;
     cursor: pointer;

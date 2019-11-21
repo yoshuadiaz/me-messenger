@@ -17,7 +17,7 @@ import Searcher from './Searcher';
 import userImage from '../assets/static/user.jpg';
 
 const Chats = (props) => {
-  const { user, conversations } = props;
+  const { user, conversations, handleOpenChat } = props;
   const hasUser = Object.keys(user.data).length > 0;
 
   const handleLogout = () => {
@@ -35,7 +35,7 @@ const Chats = (props) => {
         {
           hasUser ?
             <Img src={gravatar(user.data.email)} alt={user.data.email} /> :
-            <Img src={userImage} alt="" />
+            <Img src={userImage} alt='' />
         }
         <div>
           {
@@ -52,13 +52,19 @@ const Chats = (props) => {
           />
         </button>
         <ul>
-          <li><Link to="/profile">Perfil</Link></li>
+          <li><Link to='/profile'>Perfil</Link></li>
           <li><Button onClick={handleLogout}>Cerrar sesion</Button></li>
         </ul>
       </Profile>
       <Searcher />
       <ChatsWrapper>
-        {conversations && conversations.length > 0 && conversations.map((conv) => <ChatItem key={conv._id} data={conv} />)}
+        {conversations && conversations.length > 0 && conversations.map((conv) => (
+          <ChatItem
+            key={conv._id}
+            data={conv}
+            handleOpenChat={handleOpenChat}
+          />
+        ))}
       </ChatsWrapper>
     </Container>
   );

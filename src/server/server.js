@@ -143,6 +143,40 @@ app.get(
   }
 );
 
+app.get('/chats/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const { token } = req.cookies;
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/chats/${id}`,
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get('/messages/chat/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const { token } = req.cookies;
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/messages/chat/${id}`,
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get('*', main);
 
 app.listen(PORT, err => {
