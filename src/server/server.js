@@ -143,6 +143,23 @@ app.get(
   }
 );
 
+app.get('/api/chats', async (req, res, next) => {
+  const { token } = req.cookies;
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/chats`,
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get('/chats/user/:id', async (req, res, next) => {
   const { id } = req.params;
   const { token } = req.cookies;
