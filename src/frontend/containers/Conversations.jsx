@@ -110,7 +110,13 @@ const Conversations = (props) => {
           </Button.Group>
         </Form>
       </Modal>
-      {conversations.length === 0 && <h1>Aún no has iniciado ninguna conversación</h1>}
+      {conversations.length === 0 && (
+        <h1>
+          ¡Bienvenido!
+          <br />
+          <small>Aún no has iniciado ninguna conversación</small>
+        </h1>
+      )}
       {conversations.length > 0 && (
         <h1>
           !Bienvenido!

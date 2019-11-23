@@ -36,6 +36,7 @@ export const createChat = (payload, toggleModal) => {
       .then(({ data }) => {
         dispatch(saveConversationSuccess(data));
         toggleModal();
+        window.location.href = '/chats';
       })
       .catch((err) => {
         dispatch(saveConversationFailure(err));

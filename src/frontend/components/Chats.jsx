@@ -57,7 +57,6 @@ const Chats = (props) => {
             hasUser ?
               <h2>{user.data.name}</h2> : null
           }
-          <p>subtitulo</p>
         </div>
         <Icons onMouseEnter={handleAcount}>
           <MdSettings
