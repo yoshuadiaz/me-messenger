@@ -14,9 +14,9 @@ const Conversation = (props) => {
 
   return (
     <>
-      {!actualConversation.isFetching && actualConversation.data.messages && !(actualConversation.data.messages.length > 0) && <p>No hay nada que mostrar</p>}
-      {actualConversation.isFetching && <p>loading...</p>}
-      {!actualConversation.isFetching && !actualConversation.hasError && actualConversation.data.messages && actualConversation.data.messages.length > 0 && (
+      {actualConversation.hasError && <ConversationSection error="true" />}
+      {actualConversation.isFetching && <ConversationSection loading="true" />}
+      {!actualConversation.isFetching && !actualConversation.hasError && actualConversation.data.messages && (
         <ConversationSection
           data={actualConversation.data}
           me={userId}

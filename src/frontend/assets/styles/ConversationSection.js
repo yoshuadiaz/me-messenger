@@ -56,6 +56,12 @@ export const MessagesWraper = styled.div`
     background-color: #CBD5E0;
     border-radius: 4px;
   }
+  h1{
+    width: 100%;
+    margin: 20% 0;
+    font-size: 40px;
+    text-align: center;
+  }
 `;//Conversation.jsx
 
 export const Message = styled.div`
@@ -120,5 +126,12 @@ export const ButtonsWraper = styled.div`
     &:hover{
       cursor: pointer;
     }
+    ${(props) => props.error && css`
+      {
+        :hover{
+          cursor: default;
+        }
+      }
+    `}
   }
 `;
