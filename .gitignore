@@ -61,3 +61,7 @@ typings/
 .next
 
 # styles build output
+
+
+server/public/assets
+server/public/manifest.json

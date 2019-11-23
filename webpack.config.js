@@ -62,7 +62,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|gif|jpg|svg)$/,
+        test: /\.(png|gif|jpg|svg|ico)$/,
         use: [
           {
             loader: 'file-loader',
@@ -84,7 +84,7 @@ module.exports = {
         test: /\.js$/,
         filename: '[path].gz',
       }) :
-      () => {},
-    isProd ? new ManifestPlugin() : () => {},
+      () => { },
+    isProd ? new ManifestPlugin() : () => { },
   ]
 };
