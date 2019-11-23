@@ -1,11 +1,8 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
-  display: 'none';
-  ${(props) => props.isActive && css`{
-    display: 'flex';
-  }`}
+  display: ${(props) => props.isActive ? 'flex' : 'none'};
   position: fixed;
   top: 0;
   left: 0;
