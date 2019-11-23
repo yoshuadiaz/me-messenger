@@ -4,7 +4,7 @@
   "description": "Esta es la pantalla de conversacion",
   "main": "index.js",
   "scripts": {
-    "build": "nodemon src/server/index.js --exact babel-node",
+    "build": "node src/server/index.js --exact babel-node",
     "start:prod": "node src/server/index.js --exact babel-node",
     "start:dev": "nodemon src/server/index.js --exact babel-node",
     "test": "jest",
