@@ -9,10 +9,10 @@ import { Imgs } from '../assets/styles/GlobalStyles';
 import chatImg from '../assets/static/user.jpg';
 
 const ChatItem = (props) => {
-  const { data: { title, messages, _id, type }, handleOpenChat } = props;
+  const { data: { title, messages, _id, type }, handleOpenChat, actualChat } = props;
   const lastMessage = messages.length > 0 ? messages[messages.length - 1] : false;
   return (
-    <Chat onClick={() => handleOpenChat(_id)}>
+    <Chat className={actualChat === _id ? 'isActive' : ''} onClick={() => handleOpenChat(_id)}>
       <Imgs src={chatImg} alt='Chat' />
       <div>
         <h3>{title}</h3>

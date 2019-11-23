@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import bckImg from '../../assets/static/backChat.png';
 
 export const Container = styled.div`
   grid-area: conversation;
@@ -11,8 +12,9 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 25px;
-  height: 60px;
+  padding: 10px 25px;
+  background: #ffffff;
+  height: 85px;
   border-bottom: 2px solid #F9F9F9;
   img{
     margin: 0 10px 0 0;
@@ -43,9 +45,12 @@ export const Header = styled.div`
 `;//Conversation.jsx
 
 export const MessagesWraper = styled.div`
-  height: calc(100vh - 165px);
+  height: calc(100vh - 155px);
+  background-color: #331E34;
+  background-image: url(${bckImg});
+  background-size: 70px;
   overflow-y: scroll;
-  margin: 0 10px;
+  padding: 10px;
   &::-webkit-scrollbar{
     width: 4px;
     background-color: #DADADA;
@@ -60,6 +65,7 @@ export const MessagesWraper = styled.div`
     width: 100%;
     margin: 20% 0;
     font-size: 40px;
+    color: white;
     text-align: center;
   }
 `;//Conversation.jsx
@@ -74,8 +80,8 @@ export const Message = styled.div`
     width: 70%;
     padding: 10px;
     border-radius: 10px;
-    background-color: #4D7EFB;
-    color: rgba(255, 255, 255, .8);
+    background-color: #B8FAFE;
+    color: #0C3B3F;
     ${(props) => props.fromFriend && css`background-color: #F9F9F9; color: rgba(0, 0, 0, .75);`}
   }
 `;//Message.jsx
@@ -85,7 +91,7 @@ export const SendMessage = styled.div`
   display: flex;
   width: 90%;
   height: 70px;
-  margin: 10px 5% 0;
+  margin: 0 5% 0;
   align-items: center;
   background-color: white;
   border-top: 2px solid #F9F9F9;

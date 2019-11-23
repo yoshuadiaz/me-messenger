@@ -6,8 +6,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #F9F9F9;
-  padding: 10px 0;
+  box-shadow: 5px 0 0.5em rgba(41, 41, 41, 0.24);
+  padding: 10px 0 0;
   max-height: 100vh;
+  position: relative;
+  z-index: 10;
   input{
     width: 80%;
   }
@@ -69,9 +72,9 @@ export const Profile = styled.div`
 `;//Chats.jsx
 
 export const ChatsWrapper = styled.div`
-  max-height: calc(100vh - 126px);
+  height: calc(100vh - 126px);
   overflow: hidden;
-  margin-right: 5px;
+  background: #161e29;
   &:hover{
     overflow-y: scroll;
   }
@@ -101,12 +104,21 @@ export const ChatsWrapper = styled.div`
 
 export const Chat = styled.div`
   display: flex;
-  height: 65px;
-  margin: 10px 0;
+  height: 75px;
+  padding: 10px 0;
   align-items: center;
-  &:hover{
-    background-color: #DADADA;
+  border-bottom: 1px solid;
+  transition: height .3s ease;
+  &:hover, &.isActive {
+    background-color: #D8585F;
+    height: 95px;
     cursor: pointer;
+    h3 {
+      color: white;
+    }
+    p {
+      color: #F2E1BF;
+    }
   }
   div{
     display: flex;
@@ -119,7 +131,7 @@ export const Chat = styled.div`
     }
     &:last-child{
       width: 20%;
-      margin-left: 5px;
+      margin-left: 0;
       align-items: flex-end;
       justify-content: space-around;
     }
@@ -128,7 +140,7 @@ export const Chat = styled.div`
       width: 15vw;
       height: 34px;
       font-size: 18px;
-      color: #4D7EFB;
+      color: #35e3ff;
       align-items: center;
       justify-content: space-between;
       overflow: hidden;
@@ -142,7 +154,7 @@ export const Chat = styled.div`
       white-space: nowrap;
       overflow: hidden;
       font-size: 1em;
-      color: rgba(0, 0, 0, .75);
+      color: #5E6876;
       line-height: 1em;
     }
     span{

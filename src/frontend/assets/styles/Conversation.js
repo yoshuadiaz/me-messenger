@@ -6,7 +6,7 @@ export const Container = styled.section`
   ${({ content }) => {
     if (content) {
       return css`{
-        grid-template-columns: 22.5% 77.5%;
+        grid-template-columns: 300px auto;
         grid-template-areas: "chats content";
       }`;
     }
