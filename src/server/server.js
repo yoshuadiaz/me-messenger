@@ -15,6 +15,7 @@ const THIRTY_DAYS_IN_SEC = 2592000;
 const TWO_HOURS_IN_SEC = 7200;
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || localhost;
 const app = express();
 
 app.use(express.json());
@@ -40,7 +41,7 @@ if (ENV === 'development') {
   const webpackHotMiddleware = require('webpack-hot-middleware');
   const compiler = webpack(webpackConfig);
   const serverConfig = {
-    contentBase: `http://localhost:${PORT}`,
+    contentBase: `http://${HOST}:${PORT}`,
     port: PORT,
     publicPath: webpackConfig.output.publicPath,
     hot: true,
