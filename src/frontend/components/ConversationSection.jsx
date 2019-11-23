@@ -164,7 +164,7 @@ const ConversationSection = (props) => {
             fromFriend={msg.from !== me}
             data={msg}
           />
-        )) : <h1>Aun no hay ningun mensaje</h1>}
+        )) : <h1>Aun no hay ningún mensaje</h1>}
       </MessagesWraper>
       <SendMessage>
         <input type='text' placeholder='¿Hay alguna novedad?' onChange={(e) => setMessage(e.target.value)} />

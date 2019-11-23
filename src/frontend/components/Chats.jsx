@@ -19,7 +19,7 @@ import Searcher from './Searcher';
 import userImage from '../assets/static/user.jpg';
 
 const Chats = (props) => {
-  const { user, conversations, getActualConversation } = props;
+  const { user, conversations, getActualConversation, actualConversation } = props;
   const hasUser = Object.keys(user.data).length > 0;
 
   const handleLogout = () => {
@@ -78,6 +78,7 @@ const Chats = (props) => {
             <ChatItem
               data={conv}
               handleOpenChat={getActualConversation}
+              actualChat={actualConversation}
             />
           </NavLink>
         ))}
@@ -96,6 +97,7 @@ const Chats = (props) => {
 const mapStateToProps = (state) => ({
   conversations: state.conversations.data,
   user: state.user,
+  actualConversation: state.actualConversation.data && state.actualConversation.data._id || null,
 });
 
 const mapDispatchToProps = {

@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: features;
+  color: wheat;
   display: flex;
   flex-direction: column;
-  background-color: #F9F9F9;
+  background-color: #081730;
   padding: 10px;
   max-height: 100vh;
   button:hover{
@@ -108,7 +109,7 @@ export const Attachments = styled.div`
       margin: 5px;
       font-size: 18px;
       background-color: #E9ECFF;
-      color: #4D7EFB;
+      color: #e67d7d;
       border-radius: 10px;
       align-items: center;
       justify-content: center;
@@ -119,7 +120,7 @@ export const Attachments = styled.div`
     height: 30px;
     margin-bottom: 20px;
     border-radius: 30px;
-    border: 2px solid #4D7EFB;
-    color: #4D7EFB;
+    border: 2px solid #e67d7d;
+    color: #e67d7d;
   }
 `;
