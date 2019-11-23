@@ -9,6 +9,7 @@ const render = (html, preloadedState) => {
     <html>
       <head>
         <title>KIIN Messenger</title>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
       </head>
       <body>
         <div id="app">${html}</div>

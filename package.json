@@ -65,6 +65,7 @@
     "redux": "^4.0.4",
     "redux-actions": "^2.6.5",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.88.1",
     "socket.io-client": "^2.3.0",
     "styled-components": "^4.4.0",
     "webpack-dev-middleware": "^3.7.2",

@@ -75,9 +75,9 @@ app.post('/auth/sign-in', async (req, res, next) => {
         res.cookie('token', token, {
           httpOnly: !(ENV === 'development'),
           secure: !(ENV === 'development'),
-          maxAge: rememberMe.remember ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC
+          maxAge: rememberMe.remember ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
         });
-        res.status(200).json(user.user);
+        res.status(200).json({ ...user.user, token });
       });
     } catch (error) {
       next(error);
@@ -91,88 +91,107 @@ app.post('/auth/sign-up', async (req, res, next) => {
     const userData = await axios({
       url: `${process.env.API_URL}/api/auth/sign-up`,
       method: 'post',
-      data: user
+      data: user,
     });
 
     res.status(201).json({
       name: req.body.name,
       email: req.body.email,
-      id: userData.data.data
+      id: userData.data.data,
     });
   } catch (error) {
     next(error);
   }
 });
 
-app.get("/auth/google-oauth", passport.authenticate("google-oauth", {
-  scope: ["email", "profile", "openid"]
+app.get('/auth/google-oauth', passport.authenticate('google-oauth', {
+  scope: ['email', 'profile', 'openid']
 }));
 
 app.get(
-  "/auth/google-oauth/callback",
-  passport.authenticate("google-oauth", { session: false }),
-  function (req, res, next) {
+  '/auth/google-oauth/callback',
+  passport.authenticate('google-oauth', { session: false }),
+  (req, res, next) => {
     if (!req.user) {
       next(boom.unauthorized());
     }
 
     const { token, ...user } = req.user;
 
-    res.cookie("token", token, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('token', token, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
 
-    res.cookie("email", user.user.email, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('email', user.user.email, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
-    res.cookie("name", user.user.name, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('name', user.user.name, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
-    res.cookie("id", user.user.id, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('id', user.user.id, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
 
     res.status(200).redirect('/chats');
   }
 );
 
-app.get("/auth/twitter", passport.authenticate("twitter"));
+app.get('/auth/twitter', passport.authenticate('twitter'));
 
 app.get(
-  "/auth/twitter/callback",
-  passport.authenticate("twitter", { session: false }),
-  function (req, res, next) {
+  '/auth/twitter/callback',
+  passport.authenticate('twitter', { session: false }),
+  (req, res, next) => {
     if (!req.user) {
       next(boom.unauthorized());
     }
 
     const { token, ...user } = req.user;
 
-    res.cookie("token", token, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('token', token, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
 
-    res.cookie("email", user.user.email, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('email', user.user.email, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
-    res.cookie("name", user.user.name, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('name', user.user.name, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
-    res.cookie("id", user.user.id, {
-      httpOnly: !(ENV === "development"),
-      secure: !(ENV === "development")
+    res.cookie('id', user.user.id, {
+      httpOnly: !(ENV === 'development'),
+      secure: !(ENV === 'development'),
     });
 
     res.status(200).redirect('/chats');
   }
 );
+
+app.post('/chats/user', async (req, res, next) => {
+  const { chat } = req.body;
+  const { token } = req.cookies;
+  try {
+    const response = await axios({
+      url: `${process.env.API_URL}/api/chats/user`,
+      method: 'post',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data: chat,
+    });
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    console.log('EL ERROR: ', error)
+    next(error);
+  }
+});
 
 app.get('/chats/user/:id', async (req, res, next) => {
   const { id } = req.params;

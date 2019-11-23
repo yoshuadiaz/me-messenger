@@ -167,7 +167,7 @@ const ConversationSection = (props) => {
         )) : <h1>Aun no hay ningun mensaje</h1>}
       </MessagesWraper>
       <SendMessage>
-        <input type='text' placeholder='Write a text' onChange={(e) => setMessage(e.target.value)} />
+        <input type='text' placeholder='¿Hay alguna novedad?' onChange={(e) => setMessage(e.target.value)} />
         <ButtonsWraper>
           <button type='button'>
             <MdKeyboardVoice size={25} color='#CBD5E0' />

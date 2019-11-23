@@ -9,7 +9,7 @@ import { Imgs } from '../assets/styles/GlobalStyles';
 import chatImg from '../assets/static/user.jpg';
 
 const ChatItem = (props) => {
-  const { data: { title, messages, _id }, handleOpenChat } = props;
+  const { data: { title, messages, _id, type }, handleOpenChat } = props;
   const lastMessage = messages.length > 0 ? messages[messages.length - 1] : false;
   return (
     <Chat onClick={() => handleOpenChat(_id)}>
@@ -17,7 +17,7 @@ const ChatItem = (props) => {
       <div>
         <h3>{title}</h3>
         {lastMessage && <p>{lastMessage}</p>}
-        {!lastMessage && <p>Aún no hay mensajes</p>}
+        {!lastMessage && <p>{type}</p>}
       </div>
       <div>
         {lastMessage && <span>...</span>}
