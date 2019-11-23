@@ -27,11 +27,11 @@ export const saveSuccess = (state, { payload }) => ({
   ...state,
   isSaving: false,
   hasSavingError: false,
-  data: payload,
+  savedData: payload,
 });
 
 export const saveFailure = (state, _) => ({
   ...state,
-  isFetching: false,
+  isSaving: false,
   hasSavingError: true,
 });

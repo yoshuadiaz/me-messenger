@@ -136,14 +136,14 @@ export const Chat = styled.div`
       text-overflow: ellipsis;
     }
     p{
-      height: 16px;
+      height: 1.5em;
       max-width: 10vw;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      font-size: 14px;
+      font-size: 1em;
       color: rgba(0, 0, 0, .75);
-      overflow: hidden;
+      line-height: 1em;
     }
     span{
       margin-right: 5px;
