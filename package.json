@@ -4,8 +4,8 @@
   "description": "Esta es la pantalla de conversacion",
   "main": "index.js",
   "scripts": {
-    "build": "node src/server/index.js --exact babel-node",
-    "start:prod": "node src/server/index.js --exact babel-node",
+    "build": "webpack-cli --config webpack.config.js --colors",
+    "start:prod": "node src/server/index.js",
     "start:dev": "nodemon src/server/index.js --exact babel-node",
     "test": "jest",
     "test:watch": "jest --watch",
