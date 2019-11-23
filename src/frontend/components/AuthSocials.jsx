@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTwitter, FaGoogle, FaFacebook } from 'react-icons/fa';
+import { FaTwitter, FaGoogle } from 'react-icons/fa';
 
 import { Anchor } from '../assets/styles/Auth';
 
@@ -14,11 +14,6 @@ const AuthSocials = ({ registro }) => (
       <FaTwitter size={28} color='#50BDBE' />
       {registro ? 'Registrarse ' : 'Iniciar sesion '}
       con Twitter
-    </Anchor>
-    <Anchor href='https://facebook.com'>
-      <FaFacebook size={28} color='#50BDBE' />
-      {registro ? 'Registrarse ' : 'Iniciar sesion '}
-      con Facebook
     </Anchor>
   </div>
 );

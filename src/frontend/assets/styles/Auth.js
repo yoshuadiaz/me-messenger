@@ -63,9 +63,9 @@ export const FormAuth = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #F9F9F9;
-  justify-content: center;
   flex-direction: column;
   box-shadow: 0 0 2em;
+  overflow-y: scroll;
   h1{
     width: 80%;
     text-align: center;
@@ -86,16 +86,6 @@ export const FormAuth = styled.div`
     justify-content: center;
     flex-direction: column;
     border-bottom: 2px solid #DADADA;
-    input{
-      width: 80%;
-      height: 30px;
-      margin: 0 auto;
-      text-indent: 10px;
-      background-color: #CBD5E0;
-      border-radius: 30px;
-      border: none;
-      outline: 0;
-    }
   }
   div{
     display: flex;
@@ -105,6 +95,17 @@ export const FormAuth = styled.div`
     justify-content: center;
     flex-direction: column;
   }
+`;
+
+export const Input = styled.input`
+  width: 80%;
+  height: 30px;
+  margin: 0 auto;
+  text-indent: 10px;
+  background-color: #CBD5E0;
+  border-radius: 30px;
+  border: none;
+  outline: 0;
 `;
 
 export const Anchor = styled.a`
@@ -129,4 +130,17 @@ export const Anchor = styled.a`
       width: auto;
     }     
   `}
+`;
+
+export const Remember = styled.label`
+  width: 80%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  input{
+    width: 20px;
+    height: 20px;
+    margin: 5px 10px 0 0;
+  }
 `;

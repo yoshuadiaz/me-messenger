@@ -11,6 +11,8 @@ import main from './routes/main';
 
 dotenv.config();
 
+const THIRTY_DAYS_IN_SEC = 2592000;
+const TWO_HOURS_IN_SEC = 7200;
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -55,6 +57,8 @@ if (ENV === 'development') {
 }
 
 app.post('/auth/sign-in', async (req, res, next) => {
+  const { body: rememberMe } = req;
+
   passport.authenticate('basic', async (error, data) => {
     try {
       if (error || !data) {
@@ -70,7 +74,8 @@ app.post('/auth/sign-in', async (req, res, next) => {
 
         res.cookie('token', token, {
           httpOnly: !(ENV === 'development'),
-          secure: !(ENV === 'development')
+          secure: !(ENV === 'development'),
+          maxAge: rememberMe.remember ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC
         });
         res.status(200).json(user.user);
       });
@@ -118,7 +123,20 @@ app.get(
       secure: !(ENV === "development")
     });
 
-    res.status(200).json(user.user);
+    res.cookie("email", user.user.email, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+    res.cookie("name", user.user.name, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+    res.cookie("id", user.user.id, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+
+    res.status(200).redirect('/chats');
   }
 );
 
@@ -139,7 +157,20 @@ app.get(
       secure: !(ENV === "development")
     });
 
-    res.status(200).json(user.user);
+    res.cookie("email", user.user.email, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+    res.cookie("name", user.user.name, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+    res.cookie("id", user.user.id, {
+      httpOnly: !(ENV === "development"),
+      secure: !(ENV === "development")
+    });
+
+    res.status(200).redirect('/chats');
   }
 );
 

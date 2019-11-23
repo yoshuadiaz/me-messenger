@@ -4,7 +4,7 @@ import { registerUser } from '../actions/users';
 
 import back from '../assets/static/backHero.png';
 
-import { Container, Background, FormAuth } from '../assets/styles/Auth';
+import { Container, Background, FormAuth, Input } from '../assets/styles/Auth';
 import { Button } from '../assets/styles/GlobalStyles';
 
 import AuthBackground from '../components/AuthBackground';
@@ -38,11 +38,11 @@ const Register = (props) => {
         <h1>Registrate</h1>
         <form onSubmit={handleSubmit}>
           <h2>Nombre</h2>
-          <input type="text" name="name" placeholder="Escribe tu nombre" onChange={handleInput} required />
+          <Input type="text" name="name" placeholder="Escribe tu nombre" onChange={handleInput} required />
           <h2>Correo</h2>
-          <input type='email' name='email' placeholder='Escribe tu email' onChange={handleInput} required />
+          <Input type='email' name='email' placeholder='Escribe tu email' onChange={handleInput} required />
           <h2>Contraseña</h2>
-          <input type='password' name='password' placeholder='Escribe tu contraseña' onChange={handleInput} required />
+          <Input type='password' name='password' placeholder='Escribe tu contraseña' onChange={handleInput} required />
           <Button type='submit'>Registrate</Button>
         </form>
         <AuthSocials registro />
