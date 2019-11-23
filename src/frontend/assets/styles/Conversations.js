@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bckImg from '../../assets/static/backChat.png';
+import bckImg from '../static/backChat.png';
 
 export const Container = styled.div`
   grid-area: content;

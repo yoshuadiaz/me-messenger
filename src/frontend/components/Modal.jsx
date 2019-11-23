@@ -1,8 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ModalWrapper = styled.div`
-  display: ${(prop) => prop.isActive ? 'flex' : 'none'};
+  display: 'none';
+  ${(props) => props.isActive && css`{
+    display: 'flex';
+  }`}
   position: fixed;
   top: 0;
   left: 0;
@@ -72,4 +75,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal
+export default Modal;

@@ -26,6 +26,7 @@
     "import"
   ],
   "rules": {
+    "jsx-a11y/label-has-associated-control": 1,
     "import/prefer-default-export": 0,
     "react/jsx-filename-extension": 0,
     "array-bracket-spacing": 2,

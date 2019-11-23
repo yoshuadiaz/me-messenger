@@ -97,7 +97,7 @@ const Chats = (props) => {
 const mapStateToProps = (state) => ({
   conversations: state.conversations.data,
   user: state.user,
-  actualConversation: state.actualConversation.data && state.actualConversation.data._id || null,
+  actualConversation: (state.actualConversation.data && state.actualConversation.data._id) || null,
 });
 
 const mapDispatchToProps = {
